@@ -1,0 +1,115 @@
+Hehe Free Use Go Brrrr License (HFUGBL) v1.2
+
+Copyright (c) %username% and contributors
+
+
+1. PURPOSE
+
+This license guarantees that software and related materials remain free to use,
+study, modify, and share. Anyone receiving software under this license gains
+these freedoms and must pass them forward.
+
+
+2. DEFINITIONS
+
+"Work"
+Any software, source code, binaries, documentation, or related content released
+under this license.
+
+"Modify"
+Any change, addition, removal, or transformation of the Work.
+
+"Distribute"
+Sharing, publishing, selling, sublicensing, or otherwise making the Work
+available to others.
+
+
+3. PERMISSIONS
+
+You are granted the right to:
+
+a) Use the Work for any purpose.
+b) Study how the Work functions.
+c) Modify the Work.
+d) Distribute the original or modified Work.
+e) Charge money for distributing or supporting the Work.
+
+
+4. CONDITIONS
+
+If you distribute the Work or a modified version, you must:
+
+a) Provide access to the full corresponding source code.
+b) Include this license text with the Work.
+c) Clearly state if you modified the Work.
+d) License the entire Work under this same license.
+e) Not impose any legal or technical restrictions that limit the freedoms
+   granted by this license.
+
+
+5. ANTI-DRM
+
+You may not apply or enforce any technological measures, digital locks,
+or other mechanisms that restrict recipients from exercising the rights
+granted by this license. Any attempt to do so constitutes a violation
+and may result in termination of rights under this license.
+
+
+6. COMBINED WORKS
+
+If the Work is combined with other code:
+
+a) The combined result must be released under this license if the Work
+   remains a significant part of it.
+b) Separate components that merely interact with the Work may use different
+   licenses.
+
+
+7. ATTRIBUTION
+
+You must preserve existing copyright notices and acknowledgements in the Work.
+You may add your own notices for modifications.
+
+
+8. NO WARRANTY
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+AND NON-INFRINGEMENT.
+
+
+9. LIABILITY
+
+Authors and contributors shall not be liable for any damages, losses, data
+corruption, or other consequences resulting from use of the Work.
+
+
+10. TERMINATION
+
+Any violation of this license results in automatic termination of rights
+granted herein. Rights may be reinstated if violations are corrected and
+distribution ceases until compliance is restored.
+
+
+11. ACCEPTANCE
+
+By using, modifying, or distributing the Work, you agree to comply with
+this license in full.
+
+
+12. MEME CLAUSE
+
+You are encouraged, but not required, to maintain the spirit of "free use go brrrr"
+by sharing improvements with the community.
+
+13. FAKE PAYWALLS
+
+The Work may include simulated, parody, or joke paywalls provided that all of the following conditions are met:
+
+a) The fake paywall must not require any real payment, personal financial details, or monetary transaction of any kind.
+b) The fake paywall must not include any functional mechanism that enables payment.
+c) The fake paywall must clearly and visibly state that it is a joke, parody, or non-functional paywall.
+d) The fake paywall must include a clear, accessible, and functional method allowing the user to bypass, disable, or dismiss the paywall directly from the paywall interface.
+e) The fake paywall must not mislead users into believing access to the Work is genuinely restricted.
+
+Fake paywalls that fail to meet all conditions above shall be considered a violation of this license and may trigger termination under Section 10.
