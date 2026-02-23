@@ -7,40 +7,6 @@ bits 16
 mov ax, 0x07E0
 mov ds, ax
 
-mov ax, 0xb800
-mov es, ax
-mov word [es:0], 0x0F41 ; set vga adress
-
-; clear the VGA text screen (80x25 = 2000 chars)
-mov ax, 0xB800
-mov es, ax
-xor di, di
-mov ax, 0x0F20    ; word = attribute<<8 | ' ' (white on black, space)
-mov cx, 2000
-rep stosw
-
-%if 0
-; print "Booting into 32 bit mode...\r\n" because it looks cool
-; \r \n is 0x0D 0x0A in case u forgor
-mov ax, 0xB800
-mov es, ax
-xor di, di        ; start at top-left (offset 0)
-mov si, str
-
-print:
-    lodsb
-    cmp al, 0b
-    je end
-    mov [es:di], al        ; character
-    mov byte [es:di+1], 0x0F ; attribute (white on black)
-    add di, 2
-    jmp print
-end:
-
-str:
-db "Booting into 32 bit mode...", 0b
-%endif ; no printing beacuse it makes it flicker :(
-
 ; ----define code and data segments----
 GDT:
     ; null descriptor
@@ -99,16 +65,6 @@ mov cr0, eax
 ; long jump to protected-mode entry
 jmp CODE_SEG:start_protected_mode
 
-; ...existing code...
-    ; enable paging: set CR0.PG (bit 31) and write back
-    mov eax, cr0
-    or  eax, 1 << 31
-    mov cr0, eax
-
-    ; far jump into 64-bit code selector (loads CS with L-bit descriptor)
-    jmp CODE_SEG:start_64bit
-
-
 bits 32
 start_protected_mode:
     ; reload segments (data selector base must be 0 in your GDT)
@@ -121,7 +77,7 @@ start_protected_mode:
 
     ; enable PAE (CR4.PAE = bit 5)
     mov eax, cr4
-    or  eax, 1 << 5
+    or eax, 1 << 5
     mov cr4, eax
 
     ; load CR3 with physical (page-aligned) address of PML4
@@ -132,12 +88,12 @@ start_protected_mode:
     ; enable Long Mode (EFER.LME = bit 8)
     mov ecx, 0xC0000080
     rdmsr                   ; EDX:EAX = MSR
-    or  eax, 1 << 8
+    or eax, 1 << 8
     wrmsr
 
     ; enable paging (CR0.PG = bit 31)
     mov eax, cr0
-    or  eax, 1 << 31
+    or eax, 1 << 31
     mov cr0, eax
 
     ; far jump into 64-bit code segment (loads CS with L-bit descriptor)
@@ -157,41 +113,8 @@ start_protected_mode:
     mov ss, ax
     mov rsp, 0x90000 ; stack
 
-    ; clear VGA (80x25) using linear address 0xB8000
-    cld
-    mov rcx, 2000
-    mov rdi, 0xB8000
-    mov ax, 0x0F20
-    rep stosw
-
-    ; write 'A' at column 1 
-    mov ax, 0x0F41        ; 'A' + attribute
-    mov rdi, 0xB8000 + 2  ; column 1
-    mov [rdi], ax
-
-    ; disable blinking cursor (set cursor start register bit 5)
-    mov dx, 0x3D4
-    mov al, 0x0A
-    out dx, al
-    mov dx, 0x3D5
-    in al, dx
-    or al, 0x20
-    out dx, al
-
-    ; set hardware cursor position to 0 (optional)
-    mov dx, 0x3D4
-    mov al, 0x0E
-    out dx, al
-    mov dx, 0x3D5
-    xor al, al
-    out dx, al
-    mov dx, 0x3D4
-    mov al, 0x0F
-    out dx, al
-    mov dx, 0x3D5
-    xor al, al
-    out dx, al
-
+    mov rax, 0x1122334455667788
+    
 jmp $ ; halt
 
 times 16384-($-$$) db 0 ; pad
