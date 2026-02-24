@@ -3,6 +3,8 @@
 nasm boot.asm -o boot.bin
 nasm boot2.asm -o boot2.bin
 nasm jankloader.cfg -o jankloader_cfg.bin
+gcc 
+
 
 out = append(boot.bin, boot2.bin)
 file out, full.bin

@@ -1,4 +1,4 @@
-; bootloader
+; bootloader stage 1, made only to load the next disk
 org 0x7c00
 bits 16
 

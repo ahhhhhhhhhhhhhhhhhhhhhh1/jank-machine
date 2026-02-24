@@ -1,4 +1,4 @@
-; bootloader stage 2
+; bootloader stage 2, boot into 64 bit mode and load stage 3
 
 org 0x7E00
 bits 16
