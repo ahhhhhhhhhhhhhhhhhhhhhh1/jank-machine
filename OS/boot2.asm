@@ -113,8 +113,31 @@ start_protected_mode:
     mov ss, ax
     mov rsp, 0x90000 ; stack
 
-    mov rax, 0x1122334455667788
+    ; mov rax, 0x1122334455667788 ; test 64 bit mode
+
+    mov rsi, 17404 ; source memory start, and should be set to the end of this file
+.loop:
+    mov al, [rsi]
+    cmp al, 0x00
+    jne .next1
+    cmp byte [rsi+1], 'e'
+    jne .next1
+    cmp byte [rsi+2], 'n'
+    jne .next1
+    cmp byte [rsi+3], 'd'
+    jne .next1
+    cmp byte [rsi+4], 0xFF
+    jne .next1
+    jmp .found            ; found the 5-byte end marker
+.next1:
+    inc rsi
+    jmp .loop
+
+.found:
+    ; jump to end of file when found
+    jmp eof    
     
 jmp $ ; halt
 
 times 16384-($-$$) db 0 ; pad
+eof:

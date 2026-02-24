@@ -1,0 +1,11 @@
+; off-brand makefile
+
+nasm boot.asm -o boot.bin
+nasm boot2.asm -o boot2.bin
+nasm jankloader.cfg -o jankloader_cfg.bin
+
+out = append(boot.bin, boot2.bin)
+file out, full.bin
+
+; optional test script
+qemu-system-x86_64 -fda full.bin 
